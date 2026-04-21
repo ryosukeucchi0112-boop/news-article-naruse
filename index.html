@@ -38,7 +38,7 @@
     }
 
     .site-wrap {
-      max-width: 980px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 0 20px 48px;
     }
@@ -88,55 +88,138 @@
       text-decoration: underline;
     }
 
-.side-card {
-  background: #fff;
-  border: 1px solid #ddd;
-  padding: 24px;
-}
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 32px;
+      align-items: start;
+    }
 
-.section-title {
-  margin: 0 0 16px;
-  padding-bottom: 8px;
-  font-size: 1.1rem;
-  border-bottom: 2px solid #222;
-}
+    .article-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 34px 36px;
+    }
 
-.related-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
+    .category {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 4px 10px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
 
-.related-item {
-  padding-bottom: 16px;
-  border-bottom: 1px solid #e5e5e5;
-}
+    .article-title {
+      margin: 0 0 14px;
+      font-size: 32px;
+      line-height: 1.45;
+      font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+      color: var(--accent);
+    }
 
-.related-item:last-child {
-  padding-bottom: 0;
-  border-bottom: none;
-}
+    .article-meta {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
 
-.related-meta {
-  margin-bottom: 6px;
-  font-size: 0.85rem;
-  color: #777;
-}
+    .lead {
+      margin: 0 0 24px;
+      font-size: 17px;
+    }
 
-.related-title a {
-  color: #111;
-  text-decoration: none;
-  line-height: 1.6;
-}
+    .article-body p {
+      margin: 0 0 20px;
+    }
 
-.related-title a:hover {
-  text-decoration: underline;
-}
+    .back-link {
+      display: inline-block;
+      margin-top: 18px;
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .side-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 24px;
+      position: sticky;
+      top: 24px;
+    }
+
+    .section-title {
+      margin: 0 0 16px;
+      padding-bottom: 8px;
+      font-size: 1.1rem;
+      border-bottom: 2px solid #222;
+    }
+
+    .related-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .related-item {
+      padding-bottom: 16px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .related-item:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .related-meta {
+      margin-bottom: 6px;
+      font-size: 0.85rem;
+      color: #777;
+      line-height: 1.6;
+    }
+
+    .related-title a {
+      color: #111;
+      text-decoration: none;
+      line-height: 1.6;
+    }
+
+    .related-title a:hover {
+      text-decoration: underline;
+    }
+
     .site-footer {
       text-align: center;
       color: var(--muted);
       font-size: 13px;
       padding: 28px 0 10px;
+    }
+
+    .fiction-note {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 900px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .side-card {
+        position: static;
+      }
     }
 
     @media (max-width: 720px) {
@@ -145,21 +228,13 @@
       }
 
       .article-card,
-      .related {
+      .side-card {
         padding: 24px 18px;
       }
 
       .article-title {
         font-size: 26px;
       }
-      .fiction-note {
-  margin-top: 12px;
-  padding-top: 12px;
-  border-top: 1px solid var(--line);
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.7;
-}
     }
   </style>
 </head>
@@ -167,7 +242,9 @@
   <div class="site-wrap">
     <header class="site-header">
       <div class="header-top">LOCAL NEWS OF MIURA AREA</div>
-      <h1 class="site-title"><a href="https://ryosukeucchi0112-boop.github.io/miura.news/">三浦新聞</a></h1>
+      <h1 class="site-title">
+        <a href="https://ryosukeucchi0112-boop.github.io/miura.news/">三浦新聞</a>
+      </h1>
       <p class="site-subtitle">地域の出来事を落ち着いた視点で伝える地方ニュースサイト</p>
       <div class="header-meta">更新日：2026年4月18日</div>
       <nav class="nav">
@@ -181,7 +258,7 @@
       </nav>
     </header>
 
-    <main>
+    <main class="content-grid">
       <article class="article-card">
         <div class="category">医療</div>
         <h1 class="article-title">女子高校生死亡、点滴後に容体急変　病院対応に疑問</h1>
@@ -190,78 +267,78 @@
         </div>
 
         <p class="lead">
-  城南市内で搬送された女子高校生が処置後に急変し、その後死亡した事案で、遺族が病院側の説明に疑問を示している。現時点で詳しい因果関係は明らかになっていない。
-</p>
+          城南市内で搬送された女子高校生が処置後に急変し、その後死亡した事案で、遺族が病院側の説明に疑問を示している。現時点で詳しい因果関係は明らかになっていない。
+        </p>
 
-<div class="article-body">
-  <p>
-    昨年、私立星浜学園高等部に通っていた女子高校生・成瀬栞さんが体調不良を訴えて医療機関に搬送され、その後、対応にあたった城南記念総合病院で点滴などの処置を受けたのち、容体が急変して死亡していたことが分かった。関係者によると、処置後まもなく状態が悪化し、救命措置が続けられたが回復には至らなかったという。
-  </p>
+        <div class="article-body">
+          <p>
+            昨年、私立星浜学園高等部に通っていた女子高校生・成瀬栞さんが体調不良を訴えて医療機関に搬送され、その後、対応にあたった城南記念総合病院で点滴などの処置を受けたのち、容体が急変して死亡していたことが分かった。関係者によると、処置後まもなく状態が悪化し、救命措置が続けられたが回復には至らなかったという。
+          </p>
 
-  <p>
-    遺族は、病院側から示された当時の経過説明について、「急変に至るまでの流れが十分に説明されていない部分がある」として疑問を持っている。処置の内容や判断の経緯をめぐって確認を求めているが、なお認識の隔たりがあるとしている。
-  </p>
+          <p>
+            遺族は、病院側から示された当時の経過説明について、「急変に至るまでの流れが十分に説明されていない部分がある」として疑問を持っている。処置の内容や判断の経緯をめぐって確認を求めているが、なお認識の隔たりがあるとしている。
+          </p>
 
-  <p>
-    これに対し、城南記念総合病院は取材に対し、「当時は必要な処置を行っており、適切に対応したと認識している」と説明した。一方で、個別の医療内容や時点ごとの判断については回答を控えるとしている。詳しい因果関係は明らかになっておらず、関係資料や説明内容を含め、経緯の確認が続いている。
-  </p>
-</div>
+          <p>
+            これに対し、城南記念総合病院は取材に対し、「当時は必要な処置を行っており、適切に対応したと認識している」と説明した。一方で、個別の医療内容や時点ごとの判断については回答を控えるとしている。詳しい因果関係は明らかになっておらず、関係資料や説明内容を含め、経緯の確認が続いている。
+          </p>
+        </div>
 
-     <a class="back-link" href="https://ryosukeucchi0112-boop.github.io/miura.news/">
-  ← ニュース一覧へ戻る
-</a>
-</article>
-
-<aside class="side-card">
-  <h2 class="section-title">関連記事</h2>
-
-  <div class="related-list">
-    <article class="related-item">
-      <div class="related-meta">2026年1月18日 / 医療 / 三浦さやか</div>
-      <div class="related-title">
-        <a href="https://ryosukeucchi0112-boop.github.io/news-article-hospital-death/">
-          女子高校生死亡、点滴後に容体急変　病院対応に疑問
+        <a class="back-link" href="https://ryosukeucchi0112-boop.github.io/miura.news/">
+          ← ニュース一覧へ戻る
         </a>
-      </div>
-    </article>
+      </article>
 
-    <article class="related-item">
-      <div class="related-meta">2026年4月7日 / 医療 / 編集部</div>
-      <div class="related-title">
-        <a href="#">
-          城南記念総合病院、ゴールデンウィーク中の一部区画の封鎖について
-        </a>
-      </div>
-    </article>
+      <aside class="side-card">
+        <h2 class="section-title">関連記事</h2>
 
-    <article class="related-item">
-      <div class="related-meta">2026年4月5日 / 社会 / 編集部</div>
-      <div class="related-title">
-        <a href="#">
-          市教育委員会、相談体制の周知強化へ　新学期前に案内配布
-        </a>
-      </div>
-    </article>
+        <div class="related-list">
+          <article class="related-item">
+            <div class="related-meta">2026年1月18日 / 医療 / 三浦さやか</div>
+            <div class="related-title">
+              <a href="https://ryosukeucchi0112-boop.github.io/news-article-hospital-death/">
+                女子高校生死亡、点滴後に容体急変　病院対応に疑問
+              </a>
+            </div>
+          </article>
 
-    <article class="related-item">
-      <div class="related-meta">2026年2月28日 / 学校 / 編集部</div>
-      <div class="related-title">
-        <a href="#">
-          私立星浜学園、16年ぶり甲子園出場！！！　主将・黒崎蓮司「支えてくれた人たちに感謝」
-        </a>
-      </div>
-    </article>
-  </div>
-</aside>
-</section>
-</main>
+          <article class="related-item">
+            <div class="related-meta">2026年4月7日 / 医療 / 編集部</div>
+            <div class="related-title">
+              <a href="#">
+                城南記念総合病院、ゴールデンウィーク中の一部区画の封鎖について
+              </a>
+            </div>
+          </article>
+
+          <article class="related-item">
+            <div class="related-meta">2026年4月5日 / 社会 / 編集部</div>
+            <div class="related-title">
+              <a href="#">
+                市教育委員会、相談体制の周知強化へ　新学期前に案内配布
+              </a>
+            </div>
+          </article>
+
+          <article class="related-item">
+            <div class="related-meta">2026年2月28日 / 学校 / 編集部</div>
+            <div class="related-title">
+              <a href="#">
+                私立星浜学園、16年ぶり甲子園出場！！！　主将・黒崎蓮司「支えてくれた人たちに感謝」
+              </a>
+            </div>
+          </article>
+        </div>
+      </aside>
+    </main>
 
     <footer class="site-footer">
-  <div>三浦新聞</div>
-  <div>© 2026 Miura Shimbun</div>
-  <div class="fiction-note">
-    ※本ページはフィクションとして制作されたもので、実在の名称・人物・出来事とは関係ありません。
+      <div>三浦新聞</div>
+      <div>© 2026 Miura Shimbun</div>
+      <div class="fiction-note">
+        ※本ページはフィクションとして制作されたもので、実在の名称・人物・出来事とは関係ありません。
+      </div>
+    </footer>
   </div>
-</footer>
 </body>
 </html>
