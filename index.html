@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>女子高校生死亡、点滴後に容体急変　病院対応に疑問 | 三浦新聞</title>
   <meta
     name="description"
     content="市内病院で処置を受けた女子高校生が急変し死亡した件で、遺族が病院側の説明に疑問を示している。詳しい因果関係は明らかになっていない。"
   />
+
   <style>
     :root {
+      --fiction-height: 34px;
       --bg: #f7f6f2;
       --paper: #ffffff;
       --ink: #1e1e1e;
@@ -31,6 +34,7 @@
 
     body {
       margin: 0;
+      padding-top: var(--fiction-height);
       font-family:
         "Hiragino Mincho ProN",
         "Yu Mincho",
@@ -46,6 +50,42 @@
     a {
       color: inherit;
       text-decoration: none;
+    }
+
+    .fiction-fixed-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      width: 100%;
+      height: var(--fiction-height);
+      background: #e1e1e1;
+      border-bottom: 1px solid #c9c9c9;
+      color: #555;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Hiragino Sans",
+        "Yu Gothic",
+        "Noto Sans JP",
+        sans-serif;
+      font-size: 12px;
+      line-height: 1.4;
+      letter-spacing: 0.03em;
+    }
+
+    .fiction-fixed-inner {
+      max-width: var(--max);
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .topbar {
@@ -148,14 +188,32 @@
       min-width: 0;
     }
 
+    .label-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
     .category {
       display: inline-block;
-      margin-bottom: 14px;
       padding: 4px 10px;
       font-size: 0.75rem;
       letter-spacing: 0.08em;
       color: #fff;
       background: var(--accent-dark);
+    }
+
+    .fiction-badge {
+      display: inline-block;
+      padding: 3px 9px;
+      border: 1px solid #b9b4aa;
+      background: #f4f1ea;
+      color: #5f5a52;
+      font-size: 0.72rem;
+      line-height: 1.5;
+      letter-spacing: 0.06em;
     }
 
     .article-title {
@@ -203,6 +261,16 @@
       color: var(--accent);
     }
 
+    .fiction-note {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border: 1px solid #ded8ce;
+      background: #faf8f2;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.8;
+    }
+
     .sidebar {
       min-width: 0;
     }
@@ -239,7 +307,7 @@
     .related-list a {
       display: block;
       padding: 14px 16px;
-      transition: 0.2s ease;
+      transition: background 0.2s ease;
     }
 
     .related-list a:hover {
@@ -257,15 +325,6 @@
       display: block;
       font-size: 0.94rem;
       line-height: 1.6;
-    }
-
-    .fiction-note {
-      margin-top: 18px;
-      padding-top: 14px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 0.82rem;
-      line-height: 1.8;
     }
 
     .site-footer {
@@ -286,6 +345,15 @@
       flex-wrap: wrap;
     }
 
+    .footer-fiction {
+      width: 100%;
+      padding-top: 12px;
+      border-top: 1px solid #d8d2c8;
+      font-size: 0.78rem;
+      line-height: 1.7;
+      color: #777;
+    }
+
     @media (max-width: 900px) {
       .content-grid {
         grid-template-columns: 1fr;
@@ -293,8 +361,27 @@
     }
 
     @media (max-width: 600px) {
+      :root {
+        --fiction-height: 40px;
+      }
+
+      .fiction-fixed-inner {
+        padding: 0 12px;
+        font-size: 11px;
+        white-space: normal;
+      }
+
+      .topbar-inner {
+        padding: 8px 16px;
+      }
+
       .site-header-inner {
         padding: 20px 16px 16px;
+      }
+
+      .global-nav-inner {
+        padding: 0 16px;
+        gap: 18px;
       }
 
       .page {
@@ -308,10 +395,21 @@
       .article-title {
         font-size: 1.45rem;
       }
+
+      .site-footer-inner {
+        padding: 18px 16px;
+      }
     }
   </style>
 </head>
+
 <body>
+  <div class="fiction-fixed-bar" role="note" aria-label="フィクション表記">
+    <div class="fiction-fixed-inner">
+      このページは創作作品上の架空ニュースサイトです。実在の報道機関・人物・団体・事件とは関係ありません。
+    </div>
+  </div>
+
   <div class="topbar">
     <div class="topbar-inner">
       <div>地域に根ざした報道を、丁寧に。</div>
@@ -323,7 +421,9 @@
     <div class="site-header-inner">
       <div class="site-name-wrap">
         <p class="site-kicker">LOCAL NEWS OF MIURA AREA</p>
-        <h1 class="site-title"><a href="index.html">三浦新聞</a></h1>
+        <h1 class="site-title">
+          <a href="index.html">三浦新聞</a>
+        </h1>
         <p class="site-sub">地域の出来事を落ち着いた視点で伝える地方ニュースサイト</p>
       </div>
     </div>
@@ -344,8 +444,15 @@
   <main class="page">
     <div class="content-grid">
       <article class="article">
-        <div class="category">医療</div>
-        <h1 class="article-title">女子高校生死亡、点滴後に容体急変　病院対応に疑問</h1>
+        <div class="label-row">
+          <span class="category">医療</span>
+          <span class="fiction-badge">劇中記事</span>
+        </div>
+
+        <h1 class="article-title">
+          女子高校生死亡、点滴後に容体急変　病院対応に疑問
+        </h1>
+
         <div class="meta">
           <span>記者：三浦さやか</span>
           <span>投稿日：2026年1月18日 08:24</span>
@@ -372,7 +479,7 @@
         </div>
 
         <div class="fiction-note">
-          ※本ページはフィクションとして制作されたもので、実在の名称・人物・出来事とは関係ありません。
+          ※この記事は創作作品内の演出として作成された劇中記事です。記載されている人物・団体・病院・学校・出来事は架空のもので、実在の人物・団体・事件とは関係ありません。
         </div>
       </article>
 
@@ -414,6 +521,9 @@
     <div class="site-footer-inner">
       <div>三浦新聞</div>
       <div>© 2026 Miura Shimbun</div>
+      <div class="footer-fiction">
+        本サイトは創作作品のために制作された架空ニュースサイトです。人物・団体・施設・風景等の画像はAI生成画像または加工画像を含む場合があります。実在の人物・団体・施設・事件とは関係ありません。
+      </div>
     </div>
   </footer>
 </body>
